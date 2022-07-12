@@ -1,0 +1,22 @@
+Raspberry Remote Setup
+ 
+Change Raspberry Pi Hostname at Command Prompt 
+1.  Launch raspi-config by typing: 
+$ sudo raspi-config (Check/Fix Hostname & Rasp PW)
+ 
+Login to your Pi and run the following commands to install Pixel desktop:
+$ sudo apt update
+$ sudo apt-get install raspberrypi-ui-mods xinit xserver-xorg
+Once done, reboot the system for the changes to take effect:
+$ sudo reboot
+ 
+Installing Xrdp
+Xrdp package is available in the default Raspbian Buster repositories. To install it, type:
+$ sudo apt install xrdp 
+When the installation process is complete, the Xrdp service will automatically start. You can verify that Xrdp is running by typing:
+$ systemctl show -p SubState --value xrdp
+The command will print “running”.
+ 
+Execute the following command to add the user to the group :
+$ sudo adduser xrdp ssl-cert  
+That’s it. Xrdp has been installed on your Pi.
